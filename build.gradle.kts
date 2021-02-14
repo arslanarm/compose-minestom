@@ -28,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    implementation(compose.runtime)
+    api(compose.runtime)
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
     api("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.1")
 
