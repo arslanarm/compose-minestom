@@ -36,7 +36,7 @@ Library depends on [Minestom](https://github.com/Minestom/Minestom), [KStom](htt
 
 To add compose runtime use the plugin jetbrains provides
 ```
-// setting.gradle.kts
+// settings.gradle.kts
 pluginManagement {
     repositories {
         gradlePluginPortal()
