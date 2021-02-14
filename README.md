@@ -5,7 +5,7 @@ Based on Compose-Runtime, library for creating declartive UI inside the inventor
 ### Examples:
 
 ```kotlin
-  canvas(player) {
+  CanvasManager.canvas(player) {
     var clicks by remember { mutableStateOf(0) }
 
     slot(0, 0) {
@@ -16,7 +16,7 @@ Based on Compose-Runtime, library for creating declartive UI inside the inventor
 
 
 ```kotlin
-  canvas(player) {
+  CanvasManager.canvas(player) {
     row(1) {
       stick()
     }
