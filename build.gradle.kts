@@ -27,12 +27,12 @@ repositories {
 }
 
 dependencies {
-    api(compose.runtime) { isTransitive = true }
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.1")
+    implementation(compose.runtime)
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+    api("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.1")
 
-    implementation("com.github.Minestom:Minestom:437afc28ff")
-    implementation("com.github.Project-Cepi:KStom:120c4c5475")
+    api("com.github.Minestom:Minestom:437afc28ff")
+    api("com.github.Project-Cepi:KStom:120c4c5475")
 }
 
 
