@@ -33,6 +33,7 @@ fun stick() {
 ### Gradle
 
 Library depends on [Minestom](https://github.com/Minestom/Minestom), [KStom](https://github.com/Project-Cepi/KStom), and [Compose-Desktop Runtime](https://github.com/JetBrains/compose-jb)
+
 To add compose runtime use the plugin jetbrains provides
 ```
 // setting.gradle.kts
@@ -60,5 +61,7 @@ dependencies {
 ```
 
 ## See also
+
 [Canvas](https://github.com/mworzala/canvas/)
+
 [compose-web-demo](https://github.com/ShikaSD/compose-browser-demo)
