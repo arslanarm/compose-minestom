@@ -31,7 +31,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.1")
 
-    implementation("com.github.Minestom:Minestom:735dd50f4e")
+    implementation("com.github.Minestom:Minestom:437afc28ff")
     implementation("com.github.Project-Cepi:KStom:120c4c5475")
 }
 
@@ -52,17 +52,4 @@ tasks {
 
 kotlin {
     explicitApi()
-}
-
-publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/arslanarm/compose-minestom")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
 }
