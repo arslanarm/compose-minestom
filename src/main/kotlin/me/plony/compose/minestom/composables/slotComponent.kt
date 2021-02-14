@@ -12,7 +12,7 @@ import net.minestom.server.item.ItemStack
 import net.minestom.server.item.Material
 
 @Composable
-fun RenderContext.slot(x: Int, y: Int, itemStackProvider: () -> ItemStack) {
+public fun RenderContext.slot(x: Int, y: Int, itemStackProvider: () -> ItemStack) {
     val itemStack = itemStackProvider()
     require(slotRange.columns.first + x in slotRange.columns)
     require(slotRange.rows.first + y in slotRange.rows)
@@ -21,7 +21,7 @@ fun RenderContext.slot(x: Int, y: Int, itemStackProvider: () -> ItemStack) {
         slotRange.subSlots(x..x, y..y)
     )
     ComposeNode<SlotComponent, MinestomApplier>(
-        factory = { SlotComponent(inventory, itemStack, newContext) },
+        factory = { SlotComponent(itemStack, newContext) },
         update = {
             set(newContext, SlotComponent::context::set)
             set(itemStack, SlotComponent::itemStack::set)
@@ -29,11 +29,11 @@ fun RenderContext.slot(x: Int, y: Int, itemStackProvider: () -> ItemStack) {
     )
 }
 
-inline fun itemStack(
+public inline fun itemStack(
     material: Material,
     amount: Byte = 1,
     crossinline onClick: (player: Player) -> Unit = { _-> }
-) = object : ItemStack(material, amount) {
+): ItemStack = object : ItemStack(material, amount) {
     override fun onInventoryClick(player: Player, clickType: ClickType, slot: Int, playerInventory: Boolean) {
         if (clickType == ClickType.LEFT_CLICK)
             onClick(player)

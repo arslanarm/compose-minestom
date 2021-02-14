@@ -8,8 +8,8 @@ plugins {
     id("org.jetbrains.compose") version "0.3.0-build152"
 }
 
-group = "me.arslan"
-version = "1.0-SNAPSHOT"
+group = "me.plony"
+version = "0.1"
 
 repositories {
     jcenter()
@@ -34,14 +34,20 @@ dependencies {
 }
 
 
-tasks.withType<KotlinCompile>() {
-    kotlinOptions {
-        jvmTarget = "11"
-        useIR = true
-        freeCompilerArgs = listOf(
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xopt-in=kotlin.RequiresOptIn",
-            "-Xopt-in=androidx.compose.runtime.ExperimentalComposeApi"
-        )
+tasks {
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = "11"
+            useIR = true
+            freeCompilerArgs = listOf(
+                "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                "-Xopt-in=kotlin.RequiresOptIn",
+                "-Xopt-in=androidx.compose.runtime.ExperimentalComposeApi"
+            )
+        }
     }
+}
+
+kotlin {
+    explicitApi()
 }

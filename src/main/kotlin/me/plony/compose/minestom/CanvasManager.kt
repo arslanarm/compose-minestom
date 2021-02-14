@@ -20,7 +20,7 @@ import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors
 
-object CanvasManager {
+public object CanvasManager {
     private val inventories = ConcurrentHashMap<UUID, Canvas>()
 
     private fun getOrCreate(player: UUID, block: @Composable RenderContext.() -> Unit): Canvas =
@@ -45,7 +45,7 @@ object CanvasManager {
         return composition
     }
 
-    fun init() {
+    public fun init() {
         GlobalSnapshotManager.ensureStarted()
         MinecraftServer.getGlobalEventHandler()
             .addEventCallback<InventoryPreClickEvent> {
@@ -54,7 +54,7 @@ object CanvasManager {
             }
     }
 
-    fun canvas(player: Player, block: @Composable RenderContext.() -> Unit): Composition {
+    public fun canvas(player: Player, block: @Composable RenderContext.() -> Unit): Composition {
         val (inventory, composition) = getOrCreate(player.uuid, block)
         player.openInventory(inventory)
         return composition

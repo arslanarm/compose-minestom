@@ -7,25 +7,23 @@ import net.minestom.server.inventory.Inventory
 import net.minestom.server.item.ItemStack
 import kotlin.reflect.KProperty
 
-class SlotComponent(
-    val inventory: Inventory,
+public class SlotComponent(
     itemStack: ItemStack,
     context: RenderContext
 ) : Component() {
-    override var context by update(context)
+    override var context: RenderContext by update(context)
 
     override fun clear() {
         inventory.setItemStack(slot, ItemStack.getAirItem())
     }
-
-    val slot: Int
+    public val slot: Int
         get() = context.slotRange.run { rows.first * 9 + columns.first }
-    var itemStack by update(itemStack)
+    public var itemStack: ItemStack by update(itemStack)
+    private val inventory get() = context.inventory
 
+    internal inline fun <reified T> update(value: T) = UpdateDelegate(value)
 
-    inline fun <reified T> update(value: T) = UpdateDelegate(value)
-
-    class UpdateDelegate<T>(var value: T) {
+    internal class UpdateDelegate<T>(var value: T) {
         operator fun getValue(thisRef: SlotComponent, property: KProperty<*>): T = value
         operator fun setValue(thisRef: SlotComponent, property: KProperty<*>, value: T) = with(thisRef) {
             clear()

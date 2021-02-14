@@ -8,21 +8,21 @@ import me.plony.compose.minestom.internal.RenderContext
 import me.plony.compose.minestom.internal.RenderContextImpl
 
 @Composable
-fun RenderContext.column(column: Int, block: @Composable RenderContext.() -> Unit) {
+public fun RenderContext.column(column: Int, block: @Composable RenderContext.() -> Unit) {
     slotRange(column..column, slotRange.rows, block)
 }
 
 @Composable
-fun RenderContext.row(row: Int, block: @Composable RenderContext.() -> Unit) {
+public fun RenderContext.row(row: Int, block: @Composable RenderContext.() -> Unit) {
     slotRange(slotRange.columns, row..row, block)
 }
 
 @Composable
-fun RenderContext.slotRange(columns: IntRange, rows: IntRange, block: @Composable RenderContext.() -> Unit) {
+public fun RenderContext.slotRange(columns: IntRange, rows: IntRange, block: @Composable RenderContext.() -> Unit) {
     val slotRange = slotRange.subSlots(columns, rows)
     val newContext = RenderContextImpl(inventory, slotRange)
     ComposeNode<SlotsComponent, MinestomApplier>(
-        factory = { SlotsComponent(inventory, newContext) },
+        factory = { SlotsComponent(newContext) },
         update = {
             set(newContext) { context = newContext }
         },
