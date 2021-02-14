@@ -23,7 +23,7 @@ Based on Compose-Runtime, library for creating declartive UI inside the inventor
   }
 
 @Composable
-fun stick() {
+fun RenderContext.stick() {
   slot(0, 0) {
     itemStack(Material.STICK)
   }
