@@ -6,6 +6,8 @@ plugins {
     kotlin("kapt") version "1.4.30"
     kotlin("plugin.serialization") version "1.4.30"
     id("org.jetbrains.compose") version "0.3.0-build152"
+    `maven-publish`
+    maven
 }
 
 group = "me.plony"
@@ -50,4 +52,17 @@ tasks {
 
 kotlin {
     explicitApi()
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/arslanarm/compose-minestom")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
