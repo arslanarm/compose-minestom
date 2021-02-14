@@ -32,8 +32,8 @@ dependencies {
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
     api("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.1")
 
-    compileOnly("com.github.Minestom:Minestom:437afc28ff")
-    compileOnly("com.github.Project-Cepi:KStom:120c4c5475")
+    api("com.github.Minestom:Minestom:437afc28ff")
+    api("com.github.Project-Cepi:KStom:120c4c5475")
 }
 
 
