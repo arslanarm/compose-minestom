@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    api(compose.runtime)
+    api(compose.runtime) { isTransitive = true }
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.1")
 
