@@ -1,6 +1,6 @@
 # Compose-Minestom
 
-Based on Compose-Runtime, library for creating declartive UI inside the inventory.
+Based on Compose-Runtime, library for creating declartive UI inside the inventory. [![](https://jitpack.io/v/arslanarm/compose-minestom.svg)](https://jitpack.io/#arslanarm/compose-minestom)
 
 ### Examples:
 
